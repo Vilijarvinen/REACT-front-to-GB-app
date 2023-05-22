@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import MessageTable from "./MessageTable";
+import SelectOptions from "./SelectOptions";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
@@ -63,18 +64,28 @@ function App() {
     mesa.current.value = null;
   }
 
+  const unames = []
+  messages.map(usernames => {
+    unames.push(usernames.username)
+  })
+  const uniq = Array.from(new Set(unames));
+
   return (
     <>
       <input ref={usna} type="text" placeholder="Username" id="usrn" />
       <input ref={mesa} type="text" placeholder="Message" id="msg" />
-      <button onClick={sndMsg}>Send message</button>
+      <button onClick={sndMsg}>Send message</button><br/>
+      <select>
+        <option hidden>Sort by user..</option>
+        <SelectOptions uniq={uniq}/>
+      </select>
       <table id="gulist">
         <tbody>
           <tr>
             <th id="usna">Username</th>
             <th id="mesag">Message</th>
           </tr>
-          <MessageTable messages={messages} />
+          <MessageTable messages={messages}/>
         </tbody>
       </table>
     </>
