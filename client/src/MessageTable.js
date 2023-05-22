@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default function MessageTable({ messages }) {
   return (
         messages.map(message => {
