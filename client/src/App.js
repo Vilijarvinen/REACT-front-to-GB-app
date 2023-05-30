@@ -74,10 +74,10 @@ function App() {
     <>
       <input ref={usna} type="text" placeholder="Username" id="usrn" />
       <input ref={mesa} type="text" placeholder="Message" id="msg" />
-      <button onClick={sndMsg}>Send message</button><br/>
+      <button onClick={sndMsg}>Send message</button><br />
       <select>
         <option hidden>Sort by user..</option>
-        <SelectOptions uniq={uniq}/>
+        <SelectOptions uniq={uniq} />
       </select>
       <table id="gulist">
         <tbody>
@@ -85,7 +85,7 @@ function App() {
             <th id="usna">Username</th>
             <th id="mesag">Message</th>
           </tr>
-          <MessageTable messages={messages}/>
+          <MessageTable messages={messages} />
         </tbody>
       </table>
     </>
